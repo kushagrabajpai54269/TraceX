@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "6aafd8a85bcac2010c55220e",
+    "title": "Exchange hot wallet trace",
+    "targetAddress": "0xbe0eb53f46cd790cd13851d5eff43d12404d33e8",
+    "status": "active",
+    "createdAt": "2026-09-20T12:59:20.457Z",
+    "updatedAt": "2026-09-20T12:59:46.367Z"
+  },
+  {
+    "_id": "6aafd8a85bcac2010c552210",
+    "title": "MEV bot analysis",
+    "targetAddress": "0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be",
+    "status": "active",
+    "createdAt": "2026-09-20T12:59:20.648Z",
+    "updatedAt": "2026-09-20T12:59:47.278Z"
+  },
+  {
+    "_id": "6ab17d9277a940d875b39a2f",
+    "title": "test",
+    "targetAddress": "0x742d35cc6634c0532925a3b844bc454e4438f44e",
+    "status": "active",
+    "createdAt": "2026-09-21T18:55:14.566Z",
+    "updatedAt": "2026-09-21T18:55:14.566Z"
+  }
+]
