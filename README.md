@@ -6,7 +6,7 @@ TraceX is a blockchain investigation platform designed to help investigators exp
 
 The current prototype focuses on **Ethereum Mainnet** and provides bounded multi-hop transaction tracing, graph-based visualization, deterministic investigation analytics, and explainable risk indicators.
 
----
+![TraceX investigation workspace](./Docs/Images/Main-Dashboard.png)
 
 ## Overview
 
@@ -30,7 +30,7 @@ Investigation Intelligence
 
 The system is designed to help an investigator move from raw blockchain transactions toward a structured understanding of the observed fund flow.
 
----
+![TraceX investigation workspace](./Docs/Videos/Tracing.gif)
 
 ## Key Features
 
@@ -60,6 +60,8 @@ The system is designed to help an investigator move from raw blockchain transact
 - Address and transaction relationships
 - Node and transaction limits to control investigation scope
 
+![TraceX investigation workspace](./Docs/Images/Intelligence-Analysis.png)
+
 ### 📊 Investigation Intelligence
 
 TraceX performs deterministic analysis over the retrieved trace.
@@ -88,7 +90,7 @@ The score is intended as an **investigation aid**, not as a probability of fraud
 
 Partial traces and investigation limits are explicitly disclosed to the investigator.
 
----
+![TraceX investigation workspace](./Docs/Images/Trace.png)
 
 ## Architecture
 
@@ -180,7 +182,7 @@ It identifies observable patterns such as:
 
 The resulting metrics, patterns, evidence, and risk indicators are presented in a dedicated Intelligence workspace.
 
----
+![TraceX investigation workspace](./Docs/Videos/Investigate.mp4)
 
 ## Project Structure
 
