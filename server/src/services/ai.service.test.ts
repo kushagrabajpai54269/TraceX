@@ -25,13 +25,13 @@ function makeAnalysis(overrides: Partial<InvestigationAnalysis> = {}): Investiga
       totalValueObserved: '3.5',
       largestTransfer: '2.0',
       earliestTransaction: '2024-01-01T00:00:00Z',
-      latestTransaction:   '2024-01-05T00:00:00Z',
+      latestTransaction: '2024-01-05T00:00:00Z',
       timeSpanDays: 4,
     },
     fundFlow: {
       majorTransfers: [{ hash: '0xhash1', value: '2.0', from: '0xabc', to: '0xdef' }],
       importantCounterparties: ['0xdef'],
-      fanInAddresses:  [],
+      fanInAddresses: [],
       fanOutAddresses: ['0xabc'],
       repeatedIntermediaries: [],
     },
@@ -140,7 +140,6 @@ describe('askAssistant — input validation', () => {
     process.env.OPENAI_API_KEY = 'sk-test-key-12345';
     const { askAssistant: freshAsk } = await import('./ai.service');
     await expect(
-      // @ts-expect-error testing empty string
       freshAsk({ message: '', history: [], context: makeContext() })
     ).rejects.toThrow('Message must be a non-empty string');
   });
