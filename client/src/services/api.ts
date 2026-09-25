@@ -118,6 +118,23 @@ export const investigationsApi = {
     const { data } = await client.post<import('../types').InvestigationAnalysis>(`/api/investigations/${id}/analysis`, traceData);
     return data;
   },
+
+  askAssistant: async (
+    id: string,
+    payload: {
+      message: string;
+      history: import('../types').ChatMessage[];
+      analysis: import('../types').InvestigationAnalysis;
+      limitReached: boolean;
+    }
+  ): Promise<{ reply: string }> => {
+    const { data } = await client.post<{ reply: string }>(
+      `/api/investigations/${id}/assistant`,
+      payload,
+      { timeout: 45_000 }
+    );
+    return data;
+  },
 };
 
 // ── Health API ────────────────────────────────────────────────

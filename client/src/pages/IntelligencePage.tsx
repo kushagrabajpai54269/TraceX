@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { BrainCircuit, ArrowLeft, AlertTriangle } from 'lucide-react';
 import { investigationsApi } from '../services/api';
-import type { Investigation, InvestigationAnalysis, InvestigationListResponse } from '../types';
+import type { Investigation, InvestigationAnalysis, InvestigationListResponse, TraceResponse } from '../types';
 import { Button } from '../components/ui/Button';
 import { LoadingState, ErrorState, EmptyState } from '../components/ui/Feedback';
 import { AddressDisplay } from '../components/ui/AddressDisplay';
+import { InvestigationAssistant } from '../components/investigations/InvestigationAssistant';
 
 export function IntelligencePage() {
   const { id } = useParams<{ id: string }>();
@@ -15,6 +16,7 @@ export function IntelligencePage() {
   const [inv, setInv] = useState<Investigation | null>(null);
   
   const [analysis, setAnalysis] = useState<InvestigationAnalysis | null>(null);
+  const [trace, setTrace] = useState<TraceResponse | null>(null);
   const [analyzing, setAnalyzing] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -40,11 +42,13 @@ export function IntelligencePage() {
     setAnalyzing(true);
     setError('');
     setAnalysis(null);
+    setTrace(null);
     try {
       // 1. Fetch trace (Phase 6 requirement for trace context)
-      const trace = await investigationsApi.trace(id, 3, 'both');
+      const traceResult = await investigationsApi.trace(id, 3, 'both');
+      setTrace(traceResult);
       // 2. Post to analysis
-      const result = await investigationsApi.analyze(id, trace);
+      const result = await investigationsApi.analyze(id, traceResult);
       setAnalysis(result);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to generate analysis.');
@@ -201,6 +205,15 @@ export function IntelligencePage() {
              </div>
           </div>
         </div>
+      )}
+
+      {/* ── AI Investigation Assistant — renders below deterministic analytics ── */}
+      {analysis && trace && id && (
+        <InvestigationAssistant
+          investigationId={id}
+          analysis={analysis}
+          trace={trace}
+        />
       )}
     </div>
   );

@@ -169,3 +169,10 @@ export interface InvestigationAnalysis {
   riskScore: number;
   limitations: string[];
 }
+
+// ── Phase 7: AI Assistant Types ───────────────────────────────
+
+export interface ChatMessage {
+  role: 'user' | 'assistant';
+  content: string;
+}

@@ -7,6 +7,7 @@ import { connectDB }          from './services/db.service';
 import { healthRouter }       from './routes/health';
 import { addressRouter }      from './routes/addresses';
 import { investigationRouter } from './routes/investigations';
+import { assistantRouter }    from './routes/assistant';
 import { dashboardRouter }    from './routes/dashboard';
 import { errorHandler }       from './middleware/errorHandler';
 
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use('/api',              healthRouter);
 app.use('/api/addresses',    addressRouter);
 app.use('/api/investigations', investigationRouter);
+app.use('/api/investigations', assistantRouter);
 app.use('/api/dashboard',    dashboardRouter);
 
 // ── Error handler (must be last) ─────────────────────────────
